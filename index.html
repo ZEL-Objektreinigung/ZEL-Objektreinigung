@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ZEL Objektreinigung</title>
+		<link rel="stylesheet" href="index.css" />
+		<link rel="icon" href="logo.svg" />
+	</head>
+	<body>
+		<div class="header">
+			<div class="header-inner">
+				<div class="logo-wrapper">
+					<img class="logo-image" src="logo.svg" alt="Logo" />
+					<div class="logo-text">
+						<div>ZEL</div>
+						<div>Objektreinigung</div>
+					</div>
+				</div>
+
+				<div class="navigation">
+					<a href="#dienste" class="entry">Dienstleistung</a>
+					<a href="#zeiten" class="entry">Öffnungszeiten</a>
+					<a href="#preise" class="entry">Preisrechner</a>
+					<a href="#buchung" class="entry">Termin buchen</a>
+					<a href="#rezensionen" class="entry">Rezensionen</a>
+					<a href="#kontakt" class="entry">Kontakt</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="content">
+			<div id="dienste" class="services">
+				<div class="title">Was wir bieten:</div>
+
+				<div class="description">Wir bieten Ihnen eine Vielzahl an Dienstleistungen an. Hier eine Auswahl:</div>
+
+				<div class="services-wrapper">
+					<div class="service">Standardreinigung innen & außen</div>
+					<div class="service">Entrümplung Häuser & Garagen</div>
+					<div class="service">Büro- & Arbeitsplatzreinigung</div>
+					<div class="service">Grund- & Umzugsreinigung</div>
+					<div class="service">Bauabschlussreinigung</div>
+					<div class="service">Glas- & Spiegelreinigung</div>
+					<div class="service">Haushaltsauflösungen</div>
+					<div class="service">Sperrmüllentsorgung</div>
+					<div class="service">Hochdruckreinigung</div>
+				</div>
+			</div>
+
+			<div id="zeiten" class="working-hours">
+				<div class="title">Unsere Öffnungszeiten</div>
+				<div class="hours-wrapper">
+					<div class="entry">
+						<div class="day">Montag</div>
+						<div class="time">07:00 - 16:00 Uhr</div>
+					</div>
+					<div class="entry">
+						<div class="day">Dienstag</div>
+						<div class="time">07:00 - 16:00 Uhr</div>
+					</div>
+					<div class="entry">
+						<div class="day">Mittwoch</div>
+						<div class="time">07:00 - 16:00 Uhr</div>
+					</div>
+					<div class="entry">
+						<div class="day">Donnerstag</div>
+						<div class="time">07:00 - 16:00 Uhr</div>
+					</div>
+					<div class="entry">
+						<div class="day">Freitag</div>
+						<div class="time">07:00 - 16:00 Uhr</div>
+					</div>
+					<div class="entry">
+						<div class="day">Samstag</div>
+						<div class="time">07:00 - 14:00 Uhr</div>
+					</div>
+					<div class="entry">
+						<div class="day">Sonntag</div>
+						<div class="time">geschlossen</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="preise" class="calculator">
+				<div class="title">Preisrechner</div>
+
+				<div class="description">Geben Sie hier die geünschten Daten an um einen geschätzten Preis zu erhalten:</div>
+
+				<div class="type">
+					<div class="description">Art der Dienstleistung</div>
+					<select id="service" class="input">
+						<option value="standard-cleaning">Standardreinigung innen & außen</option>
+						<option value="decluttering">Entrümplung Häuser & Garagen</option>
+						<option value="office-cleaning">Büro- & Arbeitsplatzreinigung</option>
+						<option value="basic-cleaning">Grund- & Umzugsreinigung</option>
+						<option value="construction-cleaning">Bauabschlussreinigung</option>
+						<option value="glass-cleaning">Glas- & Spiegelreinigung</option>
+						<option value="household-dissolution">Haushaltsauflösungen</option>
+						<option value="bulk-waste-disposal">Sperrmüllentsorgung</option>
+						<option value="high-pressure-cleaning">Hochdruckreinigung</option>
+					</select>
+				</div>
+			</div>
+
+			<div id="buchung" class="booking">
+				<div class="title">Termin buchen</div>
+
+				<div class="description">
+					<div>Sie sind interessiert an unseren Diensten? Kontaktieren Sie uns und wir vereinbaren einen Termin <a href="#kontakt">hier</a></div>
+					<div>Haben Sie schon einen Termin im Kopf? Prüfen Sie hier, ob wir an Ihrem Wunschtermin verfügbar sind:</div>
+
+					<iframe class="calender-frame" src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FBerlin&showPrint=0&showTz=0&hl=de&src=ZDQwNWZhNDM2NjFiMzA3NjI0MjRhMDMyNjg1MDA1ODA3NWE0MTk2MWQ5ZGY3Y2M0MDVhMmZkOTdjOGIxMjRlMkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=Z2JxZmZwZDRtbnNrdWlhYjVjYzVraTlkOGNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=MmE4ZzFkcjExNmJxcXZpN2k2MzU3cGRubWdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=M2M3OXV2OHZtZGRkanU0b3RnNjMxbGcwZ3NAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=MW40ZjllYmJnZmM5bjVqdGxudGpnc2ljMG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZGx2NnV1YjFpMzV0czcydGVibDI2MGhwNGtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=bW5lYXVyZWZ1NG5sMWpzdDN1M3A3MWZhajRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=dHNnc3RnZW9yZ2VuQGdtYWlsLmNvbQ&color=%23F09300&color=%23E4C441&color=%23A79B8E&color=%23D50000&color=%237CB342&color=%237CB342&color=%238E24AA&color=%23D50000" frameborder="0" scrolling="no"></iframe>
+				</div>
+			</div>
+
+			<div id="rezensionen" class="reviews">
+				<div class="title">Rezensionen</div>
+
+				<div class="description">Lesen Sie hier, was unsere Kunden über uns sagen:</div>
+			</div>
+
+			<div id="kontakt" class="contact">
+				<div class="title">Kontakt</div>
+
+				<div class="description">Sie haben Fragen oder möchten einen Termin vereinbaren? Kontaktieren Sie uns:</div>
+
+				<div class="contact-wrapper">
+					<div class="entry">
+                                    <div class="title">Adresse</div>
+                                    <div class="info">Wolfsburger Str. 08, 78518 Gifhorn</div>
+                              </div>
+					<div class="entry">
+						<div class="title">Telefon</div>
+						<div class="info">+49 1573 7208589</div>
+					</div>
+					<div class="entry">
+						<div class="title">E-Mail</div>
+						<div class="info">zel.objektreinigung@gmail.com</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="index.js" defer type="module"></script>
+	</body>
+</html>
