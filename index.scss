@@ -21,6 +21,7 @@ body {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	overflow-x: hidden;
 }
 
 .header {
@@ -30,7 +31,7 @@ body {
 	top: 0;
 	z-index: 1000;
 
-	.header-inner {
+	& > .header-inner {
 		min-height: 5vh;
 		max-height: 10vh;
 		margin: 0.5rem 1.5rem;
@@ -41,13 +42,13 @@ body {
 		transition: height 0.2s ease-in-out;
 
 		& > .logo-wrapper {
-			width: 2rem;
 			display: flex;
 			align-items: center;
 			gap: 1rem;
 
 			& > .logo-image {
 				height: 100%;
+				width: auto;
 			}
 
 			& > .logo-text {
@@ -72,7 +73,6 @@ body {
 			display: flex;
 			gap: 1rem;
 			align-items: center;
-			width: fit-content;
 
 			& > .entry {
 				font-size: 1.1rem;
@@ -103,12 +103,13 @@ body {
 
 .content {
 	min-width: 60vw;
+	max-width: 200px;
 
 	& > * {
 		scroll-margin-top: 12.5vh;
 	}
 
-	.services {
+	& > .services {
 		margin: 2rem 0;
 
 		& > .title {
@@ -142,7 +143,7 @@ body {
 		}
 	}
 
-	.working-hours {
+	& > .working-hours {
 		margin: 2rem 0;
 
 		& > .title {
@@ -153,26 +154,15 @@ body {
 
 		& > .hours-wrapper {
 			display: flex;
-			flex-direction: column;
+			flex-direction: row;
 			gap: 1rem;
-			width: 50%;
 
-			& > .entry {
-				display: flex;
-				flex-direction: row;
-				gap: 0.5rem;
-				font-size: 1.2rem;
-				font-weight: 500;
-
-				& > .day,
-				& > .time {
-					flex: 1;
-				}
-			}
+			font-size: 1.2rem;
+			font-weight: 500;
 		}
 	}
 
-	.calculator {
+	& > .calculator {
 		margin: 2rem 0;
 
 		& > .title {
@@ -187,10 +177,18 @@ body {
 			margin-bottom: 1rem;
 		}
 
-		& > .type {
+		& > .input-wrapper {
 			display: flex;
 			flex-direction: column;
 			gap: 0.25rem;
+
+			&:not(:last-child) {
+				margin-bottom: 1rem;
+			}
+
+			&.hidden {
+				display: none;
+			}
 
 			& > .description {
 				font-size: 1.25rem;
@@ -207,9 +205,18 @@ body {
 				width: 100%;
 			}
 		}
+
+		& > .result > .description {
+			font-size: 1.2rem;
+			margin-top: 1.5rem;
+
+			& > .price {
+				color: $green;
+			}
+		}
 	}
 
-	.booking {
+	& > .booking {
 		margin: 2rem 0;
 
 		& > .title {
@@ -240,14 +247,14 @@ body {
 			}
 
 			& > .calender-frame {
-				aspect-ratio: 1;
 				outline: 1px solid $blue;
 				border-radius: 0.5rem;
+				height: 25rem;
 			}
 		}
 	}
 
-	.reviews {
+	& > .reviews {
 		margin: 2rem 0;
 
 		& > .title {
@@ -263,7 +270,7 @@ body {
 		}
 	}
 
-	.contact {
+	& > .contact {
 		margin: 2rem 0;
 
 		& > .title {
@@ -280,22 +287,11 @@ body {
 
 		.contact-wrapper {
 			display: flex;
-			flex-direction: column;
+			flex-direction: row;
 			gap: 1rem;
-			width: 50%;
 
-			& > .entry {
-				display: flex;
-				flex-direction: row;
-				gap: 0.5rem;
-				font-size: 1.2rem;
-				font-weight: 500;
-
-				& > .title,
-				& > .info {
-					flex: 1;
-				}
-			}
+			font-size: 1.2rem;
+			font-weight: 500;
 		}
 	}
 }

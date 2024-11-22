@@ -51,32 +51,22 @@
 			<div id="zeiten" class="working-hours">
 				<div class="title">Unsere Öffnungszeiten</div>
 				<div class="hours-wrapper">
-					<div class="entry">
-						<div class="day">Montag</div>
-						<div class="time">07:00 - 16:00 Uhr</div>
+					<div class="weekdays">
+						<div class="weekday">Montag</div>
+						<div class="weekday">Dienstag</div>
+						<div class="weekday">Mittwoch</div>
+						<div class="weekday">Donnerstag</div>
+						<div class="weekday">Freitag</div>
+						<div class="weekday">Samstag</div>
+						<div class="weekday">Sonntag</div>
 					</div>
-					<div class="entry">
-						<div class="day">Dienstag</div>
+					<div class="hours">
 						<div class="time">07:00 - 16:00 Uhr</div>
-					</div>
-					<div class="entry">
-						<div class="day">Mittwoch</div>
 						<div class="time">07:00 - 16:00 Uhr</div>
-					</div>
-					<div class="entry">
-						<div class="day">Donnerstag</div>
 						<div class="time">07:00 - 16:00 Uhr</div>
-					</div>
-					<div class="entry">
-						<div class="day">Freitag</div>
 						<div class="time">07:00 - 16:00 Uhr</div>
-					</div>
-					<div class="entry">
-						<div class="day">Samstag</div>
+						<div class="time">07:00 - 16:00 Uhr</div>
 						<div class="time">07:00 - 14:00 Uhr</div>
-					</div>
-					<div class="entry">
-						<div class="day">Sonntag</div>
 						<div class="time">geschlossen</div>
 					</div>
 				</div>
@@ -87,7 +77,7 @@
 
 				<div class="description">Geben Sie hier die geünschten Daten an um einen geschätzten Preis zu erhalten:</div>
 
-				<div class="type">
+				<div class="type input-wrapper">
 					<div class="description">Art der Dienstleistung</div>
 					<select id="service" class="input">
 						<option value="standard-cleaning">Standardreinigung innen & außen</option>
@@ -100,6 +90,71 @@
 						<option value="bulk-waste-disposal">Sperrmüllentsorgung</option>
 						<option value="high-pressure-cleaning">Hochdruckreinigung</option>
 					</select>
+				</div>
+
+				<div class="area input-wrapper hidden">
+					<div class="description">Fläche in m²</div>
+					<input id="area" class="input" type="number" />
+				</div>
+
+				<div class="amount-windows-mirror input-wrapper hidden">
+					<div class="description">Anzahl der Fenster & Spiegel</div>
+					<input id="amount-windows-mirror" class="input" type="number" />
+				</div>
+
+				<div class="amount-rooms input-wrapper hidden">
+					<div class="description">Anzahl der Räume</div>
+					<input id="amount-rooms" class="input" type="number" />
+				</div>
+
+				<div class="accessibility input-wrapper hidden">
+					<div class="description">Zugänglichkeit</div>
+					<select id="accessibility" class="input">
+						<option value="easy">leicht</option>
+						<option value="medium">mittel</option>
+						<option value="hard">schwer</option>
+					</select>
+				</div>
+
+				<div class="weight-furniture input-wrapper hidden">
+					<div class="description">Gewicht der Möbel</div>
+					<select id="weight-furniture" class="input">
+						<option value="light">leicht</option>
+						<option value="medium">mittel</option>
+						<option value="heavy">schwer</option>
+					</select>
+				</div>
+
+				<div class="size-furniture input-wrapper hidden">
+					<div class="description">Größe der Möbel</div>
+					<select id="size-furniture" class="input">
+						<option value="small">klein</option>
+						<option value="medium">mittel</option>
+						<option value="large">groß</option>
+					</select>
+				</div>
+
+				<div class="type-surface input-wrapper hidden">
+					<div class="description">Art der Oberfläche</div>
+					<select id="type-surface" class="input">
+						<option value="wood">Holz</option>
+						<option value="stone">Stein</option>
+						<option value="plastic">Kunststoff</option>
+						<option value="metal">Metall</option>
+						<option value="carpet">Teppich</option>
+					</select>
+				</div>
+
+				<div class="inside-outside input-wrapper hidden">
+					<div class="description">Innen- oder Außenreinigung</div>
+					<select id="inside-outside" class="input">
+						<option value="inside">innen</option>
+						<option value="outside">außen</option>
+					</select>
+				</div>
+
+				<div class="result input-wrapper hidden">
+					<div class="description">Ihr geschätzter Preis ist <span class="price">0€</span></div>
 				</div>
 			</div>
 
@@ -126,16 +181,14 @@
 				<div class="description">Sie haben Fragen oder möchten einen Termin vereinbaren? Kontaktieren Sie uns:</div>
 
 				<div class="contact-wrapper">
-					<div class="entry">
-                                    <div class="title">Adresse</div>
-                                    <div class="info">Wolfsburger Str. 08, 78518 Gifhorn</div>
-                              </div>
-					<div class="entry">
+					<div class="title">
+						<div class="title">Adresse</div>
 						<div class="title">Telefon</div>
-						<div class="info">+49 1573 7208589</div>
-					</div>
-					<div class="entry">
 						<div class="title">E-Mail</div>
+					</div>
+					<div class="info">
+						<div class="info">Wolfsburger Str. 08, 78518 Gifhorn</div>
+						<div class="info">+49 1573 7208589</div>
 						<div class="info">zel.objektreinigung@gmail.com</div>
 					</div>
 				</div>
