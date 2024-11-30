@@ -31,15 +31,15 @@ body {
 	position: sticky;
 	top: 0;
 	z-index: 1000;
-	overflow-x: hidden;
+	overflow: hidden;
 
 	& > .header-inner {
-		min-height: 5vh;
-		max-height: 10vh;
+		height: 10vh;
 		margin: 0.5rem 1.5rem;
 
 		display: flex;
 		justify-content: space-between;
+		gap: 1.5rem;
 
 		transition: height 0.2s ease-in-out;
 
@@ -81,6 +81,7 @@ body {
 				font-weight: 500;
 				color: $font-color;
 				transition: color 0.2s ease-in-out;
+				text-align: center;
 
 				&::after {
 					content: "";
@@ -105,7 +106,7 @@ body {
 
 .content {
 	min-width: 60vw;
-	max-width: 200px;
+	padding: 0 1rem;
 
 	& > * {
 		scroll-margin-top: 12.5vh;
@@ -300,6 +301,32 @@ body {
 
 			font-size: 1.2rem;
 			font-weight: 500;
+
+			& > .title,
+			& > .info {
+				display: flex;
+				flex-direction: column;
+			}
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.header {
+		& > .header-inner {
+			justify-content: center;
+
+			& > .navigation {
+				display: none;
+			}
+		}
+	}
+}
+
+@media (max-height: 600px) {
+	.header {
+		& > .header-inner {
+			height: 8vh;
 		}
 	}
 }
