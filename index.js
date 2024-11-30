@@ -9,6 +9,7 @@ const furnitureSizeElement = document.querySelector(".size-furniture > .input");
 const surfaceElement = document.querySelector(".type-surface > .input");
 const insideOutsideElement = document.querySelector(".inside-outside > .input");
 const priceElement = document.querySelector(".result > .description > .price");
+const errorElement = document.querySelector(".error > .description");
 const allInputs = [typeElement, areaElement, glassCountElement, roomCountElement, accessibilityElement, furnitureWeightElement, furnitureSizeElement, surfaceElement, insideOutsideElement];
 const getType = () => typeElement.value;
 const getArea = () => Number(areaElement.value);
@@ -82,6 +83,13 @@ const showPrice = (price) => {
         (_d = (_c = priceElement.parentElement) === null || _c === void 0 ? void 0 : _c.parentElement) === null || _d === void 0 ? void 0 : _d.classList.remove("hidden");
     }
 };
+const showError = (show) => {
+    var _a, _b;
+    if (show)
+        (_a = errorElement.parentElement) === null || _a === void 0 ? void 0 : _a.classList.remove("hidden");
+    else
+        (_b = errorElement.parentElement) === null || _b === void 0 ? void 0 : _b.classList.add("hidden");
+};
 const calculatePrice = () => {
     const data = getAllInput();
     // Check if all required fields (for the selected type) are filled
@@ -103,28 +111,34 @@ const calculatePrice = () => {
             return;
         }
     }
+    if (data.type === "glass-cleaning") {
+        showError(true);
+    }
+    else {
+        showError(false);
+    }
     // There are more prices in this object, however they are being inserted by the compiler
     const prices = {
         "standard-cleaning": {
-            perSquareMeter: 10,
+            perSquareMeter: 1.75,
         },
         decluttering: {
             perSquareMeter: 15,
         },
         "office-cleaning": {
-            perSquareMeter: 8,
+            perSquareMeter: 2,
         },
         "basic-cleaning": {
-            perSquareMeter: 12,
+            perSquareMeter: 1.75,
         },
         "construction-cleaning": {
-            perSquareMeter: 20,
+            perSquareMeter: 2.5,
         },
         "glass-cleaning": {
             perWindow: 5,
         },
         "household-dissolution": {
-            perSquareMeter: 10,
+            perSquareMeter: 5,
             easyAccessibilityMultiplier: 1,
             mediumAccessibilityMultiplier: 1.1,
             hardAccessibilityMultiplier: 1.25,
@@ -137,7 +151,7 @@ const calculatePrice = () => {
             roomCountAbove5Multiplier: 1.5,
         },
         "bulk-waste-disposal": {
-            perSquareMeter: 5,
+            perSquareMeter: 2,
             lightFurnitureWeightMultiplier: 1,
             mediumFurnitureWeightMultiplier: 1.1,
             heavyFurnitureWeightMultiplier: 1.25,
@@ -146,7 +160,7 @@ const calculatePrice = () => {
             largeFurnitureSizeMultiplier: 1.2,
         },
         "high-pressure-cleaning": {
-            perSquareMeter: 15,
+            perSquareMeter: 3,
             woodSurfaceMultiplier: 1,
             stoneSurfaceMultiplier: 1.25,
             plasticSurfaceMultiplier: 1,
@@ -156,6 +170,7 @@ const calculatePrice = () => {
             outsideMultiplier: 1.5,
         },
     };
+    document.querySelector("");
     // Now, for each type, calculate the price
     if (data.type === "standard-cleaning") {
         // Required data: area
@@ -178,8 +193,8 @@ const calculatePrice = () => {
         showPrice(data.area * prices["construction-cleaning"].perSquareMeter);
     }
     else if (data.type === "glass-cleaning") {
-        // Required data: area
-        showPrice(data.glassCount * prices["glass-cleaning"].perWindow);
+        // Required data: none, show error
+        showPrice(-1);
     }
     else if (data.type === "household-dissolution") {
         // Required data: area, roomCount, accessibility, furnitureWeight, furnitureSize

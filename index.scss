@@ -21,6 +21,7 @@ body {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	width: 100%;
 	overflow-x: hidden;
 }
 
@@ -30,6 +31,7 @@ body {
 	position: sticky;
 	top: 0;
 	z-index: 1000;
+	overflow-x: hidden;
 
 	& > .header-inner {
 		min-height: 5vh;
@@ -204,14 +206,20 @@ body {
 				border-radius: 0.5rem;
 				width: 100%;
 			}
-		}
 
-		& > .result > .description {
-			font-size: 1.2rem;
-			margin-top: 1.5rem;
+			&.result > .description {
+				font-size: 1.2rem;
+				margin-top: 1.5rem;
 
-			& > .price {
-				color: $green;
+				& > .price {
+					color: $green;
+				}
+			}
+
+			&.error > .description {
+				font-size: 1.2rem;
+				margin-top: 1.5rem;
+				color: $red;
 			}
 		}
 	}

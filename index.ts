@@ -29,7 +29,8 @@ const furnitureWeightElement = document.querySelector(".weight-furniture > .inpu
 const furnitureSizeElement = document.querySelector(".size-furniture > .input") as HTMLSelectElement;
 const surfaceElement = document.querySelector(".type-surface > .input") as HTMLSelectElement;
 const insideOutsideElement = document.querySelector(".inside-outside > .input") as HTMLSelectElement;
-const priceElement = document.querySelector(".result > .description > .price") as HTMLInputElement;
+const priceElement = document.querySelector(".result > .description > .price") as HTMLDivElement;
+const errorElement = document.querySelector(".error > .description") as HTMLDivElement;
 
 const allInputs = [typeElement, areaElement, glassCountElement, roomCountElement, accessibilityElement, furnitureWeightElement, furnitureSizeElement, surfaceElement, insideOutsideElement];
 
@@ -112,6 +113,11 @@ const showPrice = (price: number): void => {
 	}
 };
 
+const showError = (show: boolean): void => {
+	if (show) errorElement.parentElement?.classList.remove("hidden");
+	else errorElement.parentElement?.classList.add("hidden");
+};
+
 const calculatePrice = (): void => {
 	const data = getAllInput();
 
@@ -137,28 +143,34 @@ const calculatePrice = (): void => {
 		}
 	}
 
+	if (data.type === "glass-cleaning") {
+		showError(true);
+	} else {
+		showError(false);
+	}
+
 	// There are more prices in this object, however they are being inserted by the compiler
 	const prices: Record<Type, Record<string, any>> = {
 		"standard-cleaning": {
-			perSquareMeter: 10,
+			perSquareMeter: 1.75,
 		},
 		decluttering: {
 			perSquareMeter: 15,
 		},
 		"office-cleaning": {
-			perSquareMeter: 8,
+			perSquareMeter: 2,
 		},
 		"basic-cleaning": {
-			perSquareMeter: 12,
+			perSquareMeter: 1.75,
 		},
 		"construction-cleaning": {
-			perSquareMeter: 20,
+			perSquareMeter: 2.5,
 		},
 		"glass-cleaning": {
 			perWindow: 5,
 		},
 		"household-dissolution": {
-			perSquareMeter: 10,
+			perSquareMeter: 5,
 
 			easyAccessibilityMultiplier: 1,
 			mediumAccessibilityMultiplier: 1.1,
@@ -175,7 +187,7 @@ const calculatePrice = (): void => {
 			roomCountAbove5Multiplier: 1.5,
 		},
 		"bulk-waste-disposal": {
-			perSquareMeter: 5,
+			perSquareMeter: 2,
 
 			lightFurnitureWeightMultiplier: 1,
 			mediumFurnitureWeightMultiplier: 1.1,
@@ -186,7 +198,7 @@ const calculatePrice = (): void => {
 			largeFurnitureSizeMultiplier: 1.2,
 		},
 		"high-pressure-cleaning": {
-			perSquareMeter: 15,
+			perSquareMeter: 3,
 
 			woodSurfaceMultiplier: 1,
 			stoneSurfaceMultiplier: 1.25,
@@ -198,6 +210,8 @@ const calculatePrice = (): void => {
 			outsideMultiplier: 1.5,
 		},
 	};
+
+	document.querySelector("");
 
 	// Now, for each type, calculate the price
 	if (data.type === "standard-cleaning") {
@@ -216,8 +230,8 @@ const calculatePrice = (): void => {
 		// Required data: area
 		showPrice(data.area * prices["construction-cleaning"].perSquareMeter);
 	} else if (data.type === "glass-cleaning") {
-		// Required data: area
-		showPrice(data.glassCount * prices["glass-cleaning"].perWindow);
+		// Required data: none, show error
+		showPrice(-1);
 	} else if (data.type === "household-dissolution") {
 		// Required data: area, roomCount, accessibility, furnitureWeight, furnitureSize
 
