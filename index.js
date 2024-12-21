@@ -120,16 +120,16 @@ const calculatePrice = () => {
     // There are more prices in this object, however they are being inserted by the compiler
     const prices = {
         "standard-cleaning": {
-            perSquareMeter: 1.75,
-        },
-        decluttering: {
-            perSquareMeter: 15,
-        },
-        "office-cleaning": {
             perSquareMeter: 2,
         },
-        "basic-cleaning": {
+        decluttering: {
+            perSquareMeter: 12.5,
+        },
+        "office-cleaning": {
             perSquareMeter: 1.75,
+        },
+        "basic-cleaning": {
+            perSquareMeter: 2,
         },
         "construction-cleaning": {
             perSquareMeter: 2.5,
@@ -138,7 +138,7 @@ const calculatePrice = () => {
             perWindow: 5,
         },
         "household-dissolution": {
-            perSquareMeter: 5,
+            perSquareMeter: 2,
             easyAccessibilityMultiplier: 1,
             mediumAccessibilityMultiplier: 1.1,
             hardAccessibilityMultiplier: 1.25,
@@ -170,7 +170,6 @@ const calculatePrice = () => {
             outsideMultiplier: 1.5,
         },
     };
-    document.querySelector("");
     // Now, for each type, calculate the price
     if (data.type === "standard-cleaning") {
         // Required data: area

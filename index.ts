@@ -211,8 +211,6 @@ const calculatePrice = (): void => {
 		},
 	};
 
-	document.querySelector("");
-
 	// Now, for each type, calculate the price
 	if (data.type === "standard-cleaning") {
 		// Required data: area
