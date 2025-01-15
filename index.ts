@@ -152,7 +152,7 @@ const calculatePrice = (): void => {
 	// There are more prices in this object, however they are being inserted by the compiler
 	const prices: Record<Type, Record<string, any>> = {
 		"standard-cleaning": {
-			perSquareMeter: 2,
+			perSquareMeter: 1.8,
 		},
 		decluttering: {
 			perSquareMeter: 12.5,

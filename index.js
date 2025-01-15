@@ -120,7 +120,7 @@ const calculatePrice = () => {
     // There are more prices in this object, however they are being inserted by the compiler
     const prices = {
         "standard-cleaning": {
-            perSquareMeter: 2,
+            perSquareMeter: 1.8,
         },
         decluttering: {
             perSquareMeter: 12.5,
